@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <pattern id="islamicGrid" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <!-- 8-pointed star pattern -->
+      <g fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.35">
+        <!-- Central 8-point star -->
+        <polygon points="100,20 108,45 135,35 118,58 145,65 118,75 135,95 108,82 100,105 92,82 65,95 82,75 55,65 82,58 65,35 92,45"/>
+        <!-- Inner star -->
+        <polygon points="100,35 105,50 120,45 112,58 128,62 112,68 120,80 105,73 100,88 95,73 80,80 88,68 72,62 88,58 80,45 95,50"/>
+        <!-- Corner connectors -->
+        <path d="M0,0 L30,30 M200,0 L170,30 M0,200 L30,170 M200,200 L170,170"/>
+        <circle cx="0" cy="0" r="8"/>
+        <circle cx="200" cy="0" r="8"/>
+        <circle cx="0" cy="200" r="8"/>
+        <circle cx="200" cy="200" r="8"/>
+        <!-- Edge diamonds -->
+        <polygon points="100,0 105,10 100,20 95,10" fill="#C9A84C" opacity="0.2"/>
+        <polygon points="100,180 105,190 100,200 95,190" fill="#C9A84C" opacity="0.2"/>
+        <polygon points="0,100 10,105 20,100 10,95" fill="#C9A84C" opacity="0.2"/>
+        <polygon points="180,100 190,105 200,100 190,95" fill="#C9A84C" opacity="0.2"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="url(#islamicGrid)"/>
+</svg>
