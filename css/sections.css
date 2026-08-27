@@ -8,18 +8,9 @@
   position: relative;
   image-rendering: auto;
   padding: clamp(2rem, 6vh, 4rem) var(--gap-md) 2rem;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
-}
-
-/* Full-screen snap per section on mobile/touch */
-@media (pointer: coarse) {
-  .hero,
-  .story,
-  #details {
-    min-height: 100vh;
-    min-height: 100dvh;
-    scroll-snap-align: start;
-  }
 }
 
 /* Hero background layer — slightly taller than the section so a subtle

@@ -7,31 +7,13 @@
 html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  overflow-y: scroll;
+  overflow-y: auto;
   -webkit-text-size-adjust: 100%;
-}
-
-/* Full-screen scroll-snap on touch/mobile devices only.
-   `proximity` + `scroll-snap-stop: normal` keep scrolling smooth and never
-   trap the user inside a section that is taller than the viewport. */
-@media (pointer: coarse) {
-  html {
-    scroll-snap-type: y proximity;
-    scroll-snap-stop: normal;
-  }
-}
-
-/* Desktop (fine pointer): normal scrolling, no snap */
-@media (pointer: fine) and (hover: hover) {
-  html {
-    scroll-snap-type: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-    scroll-snap-type: none;
   }
 }
 
@@ -41,6 +23,7 @@ body {
   line-height: 1.7;
   color: var(--text-body);
   background-color: var(--bg-page);
+  min-height: 100dvh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
