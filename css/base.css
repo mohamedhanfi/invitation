@@ -6,10 +6,23 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
   -webkit-text-size-adjust: 100%;
+}
+
+/* Full-screen scroll-snap on touch/mobile devices only */
+@media (pointer: coarse) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+/* Desktop (fine pointer): normal scrolling, no snap */
+@media (pointer: fine) and (hover: hover) {
+  html {
+    scroll-snap-type: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
