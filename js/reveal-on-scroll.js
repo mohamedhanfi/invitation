@@ -8,7 +8,6 @@
       document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('revealed'); });
       document.querySelectorAll('.section-divider').forEach(function(el) {
         el.classList.add('section-divider--drawn');
-        el.classList.add('is-visible');
       });
       return;
     }
@@ -17,7 +16,6 @@
       document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('revealed'); });
       document.querySelectorAll('.section-divider').forEach(function(el) {
         el.classList.add('section-divider--drawn');
-        el.classList.add('is-visible');
       });
       return;
     }
@@ -49,7 +47,6 @@
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('section-divider--drawn');
-          entry.target.classList.add('is-visible');
           divObs.unobserve(entry.target);
         }
       });

@@ -6,8 +6,6 @@
   justify-content: center;
   text-align: center;
   position: relative;
-  background: url('../assets/images/93dbf331ea6e67dbe0ba36238ba357e0.jpg') center/cover no-repeat;
-  background-attachment: scroll;
   image-rendering: auto;
   padding: clamp(2rem, 6vh, 4rem) var(--gap-md) 2rem;
   overflow: hidden;
@@ -24,13 +22,40 @@
   }
 }
 
+/* Hero background layer — slightly taller than the section so a subtle
+   scroll parallax (transform: translateY on desktop/fine-pointer) never
+   reveals the container edges. The white overlay is kept as a second
+   background layer so the existing look is preserved. */
 .hero::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.25) 100%);
+  top: -12%;
+  left: 0;
+  right: 0;
+  height: 124%;
+  background-image:
+    radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.25) 100%),
+    url('../assets/images/hero-bg.jpg');
+  background-image:
+    radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.25) 100%),
+    image-set(
+      url('../assets/images/hero-bg.webp') type('image/webp'),
+      url('../assets/images/hero-bg.jpg') type('image/jpeg')
+    );
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   pointer-events: none;
+}
+
+/* Parallax is desktop-only (fine pointer). Only there do we promote the
+   background layer to its own compositing surface and translate it, so
+   touch/coarse devices never pay for a full-viewport compositor layer. */
+@media (pointer: fine) and (hover: hover) {
+  .hero::before {
+    transform: translate3d(0, var(--parallax-y, 0), 0);
+    will-change: transform;
+  }
 }
 
 .hero::after {
@@ -368,7 +393,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url('../assets/images/download.jfif') center/cover no-repeat;
+  background-image: url('../assets/images/details-bg.jpg');
+  background-image: image-set(
+    url('../assets/images/details-bg.webp') type('image/webp'),
+    url('../assets/images/details-bg.jpg') type('image/jpeg')
+  );
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
   padding-block: var(--gap-md);
 }
@@ -513,6 +545,11 @@
   box-shadow: 0 6px 18px rgba(var(--gold-rgb), 0.45);
 }
 
+/* Press feedback on the map button */
+.detail-card__btn:active {
+  transform: scale(0.97);
+}
+
 /* === FOOTER === */
 .footer {
   background: linear-gradient(160deg, #2C1810 0%, #1a0f0a 100%);
@@ -544,13 +581,6 @@
   opacity: 0.85;
 }
 
-.footer__signature {
-  margin-top: var(--gap-lg);
-  font-family: var(--font-label);
-  font-size: var(--fs-small);
-  color: var(--gold);
-}
-
 .footer__love {
   margin-top: var(--gap-sm);
   font-size: var(--fs-small);
@@ -566,6 +596,9 @@
   }
   .hero__names {
     gap: 0.3rem;
+  }
+  .hero__name {
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
   }
   .countdown__number {
     min-width: 50px;

@@ -37,6 +37,15 @@
     gate.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGate(); }
     });
+
+    /* BFCache / back-forward restore edge case: if the gate was already
+       opened (hidden) and the page is restored from cache, release any
+       leftover scroll lock so the visitor can always scroll. */
+    window.addEventListener('pageshow', function(e) {
+      if (e.persisted || gate.style.display === 'none') {
+        document.body.style.overflow = '';
+      }
+    });
   }
 
   if (document.readyState === 'loading') {

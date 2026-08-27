@@ -7,7 +7,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url('../assets/images/Gemini_Generated_Image_svhc6usvhc6usvhc.jfif') center/cover no-repeat;
+  background-image: url('../assets/images/gate-bg.jpg');
+  background-image: image-set(
+    url('../assets/images/gate-bg.webp') type('image/webp'),
+    url('../assets/images/gate-bg.jpg') type('image/jpeg')
+  );
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow: hidden;
   cursor: pointer;
 }

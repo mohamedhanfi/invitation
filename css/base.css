@@ -11,10 +11,13 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Full-screen scroll-snap on touch/mobile devices only */
+/* Full-screen scroll-snap on touch/mobile devices only.
+   `proximity` + `scroll-snap-stop: normal` keep scrolling smooth and never
+   trap the user inside a section that is taller than the viewport. */
 @media (pointer: coarse) {
   html {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
+    scroll-snap-stop: normal;
   }
 }
 
@@ -69,54 +72,6 @@ h3 { font-size: var(--fs-h3); }
   padding-block: var(--section-pad);
   position: relative;
   overflow: hidden;
-}
-
-/* === Gold decorative border frame === */
-.gold-frame {
-  position: relative;
-  border: 2px solid var(--gold);
-  border-radius: var(--radius-lg);
-  padding: var(--card-pad);
-}
-
-.gold-frame::before {
-  content: '';
-  position: absolute;
-  inset: 6px;
-  border: 1px solid rgba(var(--gold-rgb), 0.3);
-  border-radius: calc(var(--radius-lg) - 4px);
-  pointer-events: none;
-}
-
-/* === Buttons === */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 2.2rem;
-  border-radius: var(--radius-md);
-  font-family: var(--font-label);
-  font-size: var(--fs-body);
-  font-weight: 600;
-  transition: all var(--duration-fast) var(--ease-smooth);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn:active { transform: scale(0.97); }
-.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
-
-.btn--primary {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: var(--ivory);
-  box-shadow: 0 4px 15px rgba(var(--gold-rgb), 0.3);
-}
-
-.btn--primary:hover {
-  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(var(--gold-rgb), 0.4);
 }
 
 /* === Corner ornaments === */
