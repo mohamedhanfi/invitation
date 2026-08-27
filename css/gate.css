@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: url('../assets/images/Gemini_Generated_Image_o1ogx9o1ogx9o1og.jfif') center/cover no-repeat;
+  background: url('../assets/images/Gemini_Generated_Image_svhc6usvhc6usvhc.jfif') center/cover no-repeat;
   overflow: hidden;
   cursor: pointer;
 }
@@ -17,7 +17,7 @@
   position: absolute;
   top: clamp(2rem, 6vh, 4rem);
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
   font-weight: 700;
   color: var(--warm-brown);
   text-align: center;
@@ -36,7 +36,7 @@
   .gate.gate--hidden { transition: opacity 0.3s; }
 }
 
-/* Starburst */
+/* Starburst — lightweight */
 .gate__starburst {
   position: absolute;
   width: 300px;
@@ -44,16 +44,17 @@
   pointer-events: none;
   z-index: 1;
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 .gate__starburst--active {
-  animation: starburstFlare 0.7s var(--ease-smooth) forwards;
+  animation: starburstFlare 0.5s var(--ease-smooth) forwards;
 }
 
 @keyframes starburstFlare {
-  0% { opacity: 0; transform: scale(0.3); }
-  30% { opacity: 0.8; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1.5); }
+  0% { opacity: 0; transform: scale(0.5); }
+  40% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.2); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -71,7 +72,7 @@
   position: absolute;
   bottom: clamp(2rem, 6vh, 4rem);
   font-family: var(--font-display);
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
   color: var(--warm-brown);
   text-align: center;
   z-index: 2;

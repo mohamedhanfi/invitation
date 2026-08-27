@@ -25,9 +25,9 @@
       setTimeout(function() {
         gate.classList.add('gate--hidden');
         document.body.style.overflow = '';
-      }, 500);
+      }, 300);
 
-      setTimeout(function() { gate.style.display = 'none'; }, 1200);
+      setTimeout(function() { gate.style.display = 'none'; }, 900);
     }
 
     gate.addEventListener('click', openGate);
