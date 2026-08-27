@@ -136,16 +136,17 @@
 }
 
 .hero__names {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: center;
-  gap: clamp(0.8rem, 3vw, 1.5rem);
-  flex-wrap: wrap;
+  justify-items: center;
+  gap: clamp(0.6rem, 2vw, 1rem);
+  width: 100%;
   margin-bottom: var(--gap-sm);
 }
 
 .hero__name {
-  font-family: var(--font-verse);
+  font-family: 'Amiri', 'Aref Ruqaa Ink', serif;
   font-size: var(--fs-hero);
   font-weight: 700;
   color: #562B00;
