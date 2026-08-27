@@ -3,3 +3,6 @@ node_modules/
 Thumbs.db
 *.log
 screenshot-check.png
+
+# Local Netlify folder
+.netlify

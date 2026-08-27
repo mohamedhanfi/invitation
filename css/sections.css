@@ -169,6 +169,9 @@
   color: var(--gold);
   line-height: 1;
   text-shadow: 0 0 12px rgba(var(--gold-rgb), 0.3);
+  display: inline-block;
+  animation: heartbeat 1.6s ease-in-out infinite;
+  transform-origin: center;
 }
 
 .hero__date {
