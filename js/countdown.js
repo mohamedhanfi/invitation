@@ -41,7 +41,7 @@
 
     if (t.total === 0) {
       var c = document.querySelector('.countdown');
-      if (c) c.innerHTML = '<p style="font-family:var(--font-display);font-size:var(--fs-h3);color:var(--gold)">بارك الله لكما وبارك عليكما وجمع بينكما في خير</p>';
+      if (c) c.innerHTML = '<p style="font-family:var(--font-display);font-size:var(--fs-h2);line-height:1.8;color:var(--gold)">بارك الله لكما وبارك عليكما وجمع بينكما في خير</p>';
     }
   }
 
